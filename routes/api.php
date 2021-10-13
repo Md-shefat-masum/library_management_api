@@ -41,6 +41,7 @@ Route::group( ['prefix'=>'v1'],function(){
         Route::post('/update','BookListController@update');
         Route::get('/get/{id}','BookListController@get');
         Route::post('/delete','BookListController@delete');
+        Route::post('/delete-multi','BookListController@delete_multi');
     });
 
 });

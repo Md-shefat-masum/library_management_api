@@ -33,6 +33,7 @@ Route::group( ['prefix'=>'v1'],function(){
         Route::get('/logout','AuthController@logout');
         Route::post('/update-profile','AuthController@update_profile');
         Route::post('/update-profile-pic','AuthController@update_profile_pic');
+        Route::get('/user-list-for-select2','AuthController@user_list_for_select2');
     });
 
     Route::group( ['prefix'=>'/book-list','middleware'=>['auth:api']],function(){
@@ -42,6 +43,15 @@ Route::group( ['prefix'=>'v1'],function(){
         Route::get('/get/{id}','BookListController@get');
         Route::post('/delete','BookListController@delete');
         Route::post('/delete-multi','BookListController@delete_multi');
+        Route::get('/book-list-for-select2','BookListController@book_list_for_select2');
+    });
+
+    Route::group( ['prefix'=>'/book-entry','middleware'=>['auth:api']],function(){
+        Route::post('/create','BookEntryController@create');
+        Route::get('/list','BookEntryController@list');
+        Route::get('/user-entries','BookEntryController@user_entries');
+        Route::post('/return-book','BookEntryController@return_book');
+        Route::get('/getentry/{entry}','BookEntryController@getentry');
     });
 
 });

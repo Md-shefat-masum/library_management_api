@@ -20,6 +20,7 @@ class CreateBookEntriesTable extends Migration
             $table->string('date',100)->nullable();
             $table->string('return_date',100)->nullable();
             $table->string('time',100)->nullable();
+            $table->tinyInteger('book_return')->default(0);
 
             $table->string('creator',100)->nullable();
             $table->string('slug',100)->nullable();
